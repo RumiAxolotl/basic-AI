@@ -59,7 +59,7 @@ void nhapMang(int n, int a[255][255])
             if (i == j)
             {
                 a[i][j] = 0;
-                return;
+                break;
             }
 
             cout << "a[" << i << "][" << j << "]= ";
