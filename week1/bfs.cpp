@@ -68,8 +68,32 @@ void xuatMang(int n, int a[255][255])
             cout << a[i][j] << " ";
 }
 
-void bfs(int n, int a[255][255]) {
-    
+int checkVisited(int n, int arr[255])
+{
+    for (int i = 0; i < n; i++)
+        if (arr[i] == 0)
+            return 0;
+    return 1;
+}
+
+void bfs(int n, int a[255][255])
+{
+    int visited[n] = {0}; // mang visited luu cac dinh da visit
+    Queue *q = new Queue;
+    initQueue(q, n); // khoi tao queue voi capacity = n
+    enQueue(q, 0);
+    cout << 0;
+    while (checkVisited(n, visited) == 0)
+    {
+        int k = deQueue(q); // dinh can check
+        for (int i = 0; i < n; i++)
+            if (a[k][i] != 0 && visited[i] == 0)
+            {
+                visited[i] = 1;
+                cout << i;
+                enQueue(q, i);
+            }
+    }
 }
 
 int main()
