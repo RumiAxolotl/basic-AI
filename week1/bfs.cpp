@@ -56,6 +56,12 @@ void nhapMang(int n, int a[255][255])
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
         {
+            if (i == j)
+            {
+                a[i][j] = 0;
+                return;
+            }
+
             cout << "a[" << i << "][" << j << "]= ";
             cin >> a[i][j];
         }
@@ -102,5 +108,6 @@ int main()
     cout << "Nhap so dinh cua do thi: ";
     cin >> n;
     nhapMang(n, a);
+    xuatMang(n, a);
     bfs(n, a);
 }
