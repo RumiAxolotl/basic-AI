@@ -43,7 +43,7 @@ int deQueue(Queue *queue)
         cout << "Queue is empty, can't dequeue" << endl;
         return 0;
     }
-    int item = queue->front;
+    int item = queue->array[queue->front];
     for (int i = 0; i < queue->size; i++)
     {
         queue->array[i] = queue->array[i + 1];
@@ -51,29 +51,6 @@ int deQueue(Queue *queue)
     queue->size--;
     queue->rear--;
     return item;
-}
-
-void printQueue(Queue *queue)
-{
-    if (isEmpty(queue))
-    {
-        cout << "Queue is empty!" << endl;
-        return;
-    }
-    for (int i = 0; i < queue->size; i++)
-    {
-        cout << queue->array[i] << " ";
-    }
-}
-
-int displayFront(Queue *queue)
-{
-    if (isEmpty(queue))
-    {
-        cout << "Queue is empty" << endl;
-        return 0;
-    }
-    return queue->array[queue->front];
 }
 
 void readFile(int &n, int a[255][255])
@@ -107,7 +84,7 @@ void bfs(int n, int a[255][255], int start)
     cout << start << " ";
     while (checkVisited(n, visited) == 0) // kiem tra toan bo cac dinh visited hay chua
     {
-        int k = displayFront(q); // lay dinh tu queue de kiem tra
+        int k = deQueue(q); // lay dinh tu queue de kiem tra
         for (int i = 0; i < n; i++)
         {
             if (a[k][i] != 0 && visited[i] == 0) // neu chua visit va trong so khac 0 thi them vao hang cho va gan co visited
@@ -117,7 +94,6 @@ void bfs(int n, int a[255][255], int start)
                 cout << i << " ";
             }
         }
-        deQueue(q);
     }
 }
 
