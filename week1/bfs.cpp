@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+FILE *f;
+
 struct Queue
 {
     int front, rear, size;
@@ -13,7 +15,7 @@ void initQueue(Queue *queue, unsigned capacity)
     queue->capacity = capacity;
     queue->front = 0;
     queue->size = 0;
-    queue->rear = - 1;
+    queue->rear = -1;
     queue->array = new int[queue->capacity];
 }
 
@@ -74,24 +76,15 @@ int displayFront(Queue *queue)
     return queue->array[queue->front];
 }
 
-void nhapMang(int n, int a[255][255])
+void docFile(int &n, int a[255][255])
 {
+    f = fopen("graph.txt", "r");
+    fscanf(f, "%d", &n);
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
         {
-            cout << "a[" << i << "][" << j << "]= ";
-            cin >> a[i][j];
+            fscanf(f, "%d", &a[i][j]);
         }
-}
-
-void xuatMang(int n, int a[255][255])
-{
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-            cout << a[i][j] << " ";
-        cout << endl;
-    }
 }
 
 int checkVisited(int n, int arr[255])
@@ -107,17 +100,17 @@ void bfs(int n, int a[255][255], int start)
     Queue *q = new Queue;
     initQueue(q, n);
     // khoi tao queue voi capacity = n
-    int visited[n] = {}; // mang visited luu cac dinh da visit
+    int visited[n] = {}; // mang visited luu co hieu cac dinh da visit
 
     enQueue(q, start);  // them dinh khoi dau vao hang cho
     visited[start] = 1; // gan dinh khoi dau da visit
     cout << start << " ";
-    while (!isEmpty(q))
+    while (checkVisited(n, visited) == 0) // kiem tra toan bo cac dinh visited hay chua
     {
         int k = displayFront(q); // lay dinh tu queue de kiem tra
         for (int i = 0; i < n; i++)
         {
-            if (a[k][i] != 0 && visited[i] == 0)
+            if (a[k][i] != 0 && visited[i] == 0) // neu chua visit va trong so khac 0 thi them vao hang cho va gan co visited
             {
                 enQueue(q, i);
                 visited[i] = 1;
@@ -130,14 +123,23 @@ void bfs(int n, int a[255][255], int start)
 
 int main()
 {
-    int n, start;
+    int n, start; // n la so dinh, start la dinh khoi dau
 
     int a[255][255] = {};
-    cout << "Nhap so dinh cua do thi: ";
-    cin >> n;
-    nhapMang(n, a);
-    xuatMang(n, a);
-    cout << "Nhap dinh khoi dau: ";
-    cin >> start;
-    bfs(n, a, start);
+    docFile(n, a);
+    do
+    {
+        cout << "Nhap dinh khoi dau (nhap -1 de ket thuc chuong trinh): ";
+        cin >> start;
+        if (start == -1)
+            break;
+        else if (start > n)
+        {
+            cout << "Dinh khoi dau khong thuoc do thi!";
+            break;
+        }
+
+        bfs(n, a, start);
+        cout << endl;
+    } while (start != -1);
 }
