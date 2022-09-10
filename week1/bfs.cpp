@@ -82,12 +82,12 @@ void bfs(int n, int a[255][255], int start)
     enQueue(q, start);  // them dinh khoi dau vao hang cho
     visited[start] = 1; // gan dinh khoi dau da visit
     cout << start << " ";
-    while (checkVisited(n, visited) == 0) // kiem tra toan bo cac dinh visited hay chua
+    while (!isEmpty(q)) // kiem tra toan bo cac dinh visited hay chua
     {
         int k = deQueue(q); // lay dinh tu queue de kiem tra
         for (int i = 0; i < n; i++)
         {
-            if (a[k][i] != 0 && visited[i] == 0) // neu chua visit va trong so khac 0 thi them vao hang cho va gan co visited
+            if ((a[k][i] != 0 || a[i][k] != 0) && visited[i] == 0) // neu chua visit va trong so khac 0 thi them vao hang cho va gan co visited
             {
                 enQueue(q, i);
                 visited[i] = 1;
