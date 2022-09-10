@@ -76,7 +76,7 @@ int displayFront(Queue *queue)
     return queue->array[queue->front];
 }
 
-void docFile(int &n, int a[255][255])
+void readFile(int &n, int a[255][255])
 {
     f = fopen("graph.txt", "r");
     fscanf(f, "%d", &n);
@@ -126,7 +126,7 @@ int main()
     int n, start; // n la so dinh, start la dinh khoi dau
 
     int a[255][255] = {};
-    docFile(n, a);
+    readFile(n, a);
     do
     {
         cout << "Nhap dinh khoi dau (nhap -1 de ket thuc chuong trinh): ";
