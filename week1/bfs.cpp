@@ -101,12 +101,14 @@ int main()
         cin >> start;
         if (start == -1)
             break;
-        else if (start > n)
+        else
         {
-            cout << "Dinh khoi dau khong thuoc do thi!";
-            break;
+            if (start > n)
+            {
+                cout << "Dinh khoi dau khong thuoc do thi!";
+                break;
+            }
         }
-
         bfs(n, a, start);
         cout << endl;
     } while (start != -1);
