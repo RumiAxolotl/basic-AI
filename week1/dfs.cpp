@@ -57,14 +57,6 @@ void readFile(int &n, int a[255][255])
         }
 }
 
-// int checkVisited(int n, int arr[255])
-// {
-//     for (int i = 0; i < n; i++)
-//         if (arr[i] == 0)
-//             return 0;
-//     return 1;
-// }
-
 void dfs(int n, int a[255][255], int start)
 {
     Stack *stack = new Stack;
@@ -103,10 +95,13 @@ int main()
         cin >> start;
         if (start == -1)
             break;
-        else if (start >= n)
+        else
         {
-            cout << "Dinh khoi dau khong thuoc do thi!";
-            break;
+            if (start >= n)
+            {
+                cout << "Dinh khong thuoc do thi!";
+                break;
+            }
         }
 
         dfs(n, a, start);
