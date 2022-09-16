@@ -64,14 +64,6 @@ void readFile(int &n, int a[255][255])
         }
 }
 
-int checkVisited(int n, int arr[255])
-{
-    for (int i = 0; i < n; i++)
-        if (arr[i] == 0)
-            return 0;
-    return 1;
-}
-
 void bfs(int n, int a[255][255], int start)
 {
     Queue *q = new Queue;
@@ -82,7 +74,7 @@ void bfs(int n, int a[255][255], int start)
     enQueue(q, start);  // them dinh khoi dau vao hang cho
     visited[start] = 1; // gan dinh khoi dau da visit
     cout << start << " ";
-    while (!isEmpty(q)) // kiem tra toan bo cac dinh visited hay chua
+    while (!isEmpty(q))
     {
         int k = deQueue(q); // lay dinh tu queue de kiem tra
         for (int i = 0; i < n; i++)
