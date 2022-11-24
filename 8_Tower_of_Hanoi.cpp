@@ -1,6 +1,4 @@
-#include<stdio.h>
-#include<iostream>
-#include<conio.h>
+#include <bits/stdc++.h>
 #include<stdlib.h> 
 
 using namespace std;
@@ -133,7 +131,6 @@ int  MoveDisk (int TempArray[3][3] ){
 	// Xet tung cot 
 	for (int MoveY = 0; MoveY < 3; MoveY++){
 		cout <<endl<<"[MoveDisk]Check MoveY: "<< MoveY << endl;
-		getch();
 		// Kiem tra xem co di chuyen dia sang cot nao ko
 		cout<< endl << "[Row and Collum] "<< Row << " " << Collum<< endl; 
 		
@@ -191,7 +188,7 @@ int AKT(){
 				Collum = X; 
 				Row = TempRow; 
 				MoveDisk(TempArray); 
-				cout << endl << "[AKT] Loop of Collum: "<< X  << endl; OutArray2(StartArray); cout << endl; getch(); 
+				cout << endl << "[AKT] Loop of Collum: "<< X  << endl; OutArray2(StartArray); cout << endl;
 			}
 		}
 		cout<< "[AKT] End "<< endl; 
@@ -201,7 +198,7 @@ int AKT(){
 		cout << "[AKT] PassDisk update: "<< PassDisk << endl;
 		cout << endl;
 		OutArray(StartArray);
-		cout << endl; 	getch();
+		cout << endl;
 	}
 	cout << "Number of disk moves: "<< G;	
 }

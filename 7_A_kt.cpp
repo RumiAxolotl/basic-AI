@@ -1,6 +1,4 @@
-#include<stdio.h>
-#include<iostream>
-#include<conio.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 // Kich thuoc mang [Trong bai nay khong can thiet]
@@ -130,7 +128,6 @@ void AKT (){
 		
 		cout << endl << "Number of wrong numbers left: "<<Final<<endl;
 		OutArray(StartArray); 
-		getch(); 
 		}
 	cout <<endl << "Number of steps moved: "<< G; 
 }
@@ -140,6 +137,5 @@ int main (){
 	OutArray( StartArray);
 	cout << endl << "End: " << endl;
 	OutArray( EndArray);
-	getch(); 
 	AKT(); 
 } 
