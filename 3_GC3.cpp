@@ -37,15 +37,15 @@ void PrintColorUsed(int CheckFlag[MAX] ,int ArraySize ,int ColorNumber){
 	}
 }
 
-// Ham tim mot bat cua dinh 
+// Ham tim mot bac cua dinh 
 int OneHierarchy ( int GraphArray[][MAX] , int ArraySize, int Row){
-	int Hierarchy = 0; //Bien luu bat cua dinh duoc xet
+	int Hierarchy = 0; //Bien luu bac cua dinh duoc xet
 	for ( int i = 0 ; i < ArraySize; i++ )
 		Hierarchy = Hierarchy + GraphArray[Row][i];
 	return Hierarchy; 
 } 
 
-//Ham tim bat cua tat ca cac dinh 
+//Ham tim bac cua tat ca cac dinh 
 int  AllHierarchy ( int GraphArray[][MAX] , int ArraySize, int Hierarchy[MAX]){
 	for ( int i = 0 ; i < ArraySize ; i++ ){
 		Hierarchy[i] = OneHierarchy( GraphArray , ArraySize , i );
@@ -53,7 +53,7 @@ int  AllHierarchy ( int GraphArray[][MAX] , int ArraySize, int Hierarchy[MAX]){
 	cout<<endl; 	 
 }
 
-// Ham sap xep lai theo bat 
+// Ham sap xep lai theo bac 
 void SortHierarchy( int GraphArray[][MAX], int ArraySize ,int Hierarchy[MAX] ) {
 	int temp;
 	for ( int i = 0 ; i < ArraySize ; i++ )

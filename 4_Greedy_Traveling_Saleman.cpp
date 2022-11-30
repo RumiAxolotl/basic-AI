@@ -2,15 +2,15 @@
 using namespace std;
 #define MAX 100 
 
-void InArray (int Array[][MAX], int ArraySize){
-	for ( int x = 0 ; x < ArraySize ; x++ ){
-		for ( int y = 0 ; y < ArraySize ; y++ ){
-			cout<<" Enter the value of element [ "<< x + 1 <<" : "<< y + 1 <<" ] : "; 
-			cin>>Array[x][y];	
-		}
-		cout<<endl;
-	}
-}
+// void InArray (int Array[][MAX], int ArraySize){
+// 	for ( int x = 0 ; x < ArraySize ; x++ ){
+// 		for ( int y = 0 ; y < ArraySize ; y++ ){
+// 			cout<<" Enter the value of element [ "<< x + 1 <<" : "<< y + 1 <<" ] : "; 
+// 			cin>>Array[x][y];	
+// 		}
+// 		cout<<endl;
+// 	}
+// }
 
 void OutArray (int Array[][MAX], int ArraySize){
 	for ( int x = 0 ; x < ArraySize ; x++ ){
@@ -19,17 +19,6 @@ void OutArray (int Array[][MAX], int ArraySize){
 		cout<<endl;
 	}
 }
-
-void GT2( int Route[] , int Start , int RoutePoint , int TotalCost ){
-	int AllRoute[MAX][MAX];
-	for ( int i = 0 ; i < RoutePoint ; i++ )
-		AllRoute[Start][i] == Route[i];
-	AllRoute[Start][RoutePoint] == Start;
-	for ( int j = 0; j < RoutePoint; j++ )
-			cout <<Route[j] + 1 <<" --> ";
-		cout << " "<< Start <<" " << endl;
-		cout << "Cost: "<< TotalCost; 
-} 
 
 int GTS1 ( int Array[][MAX], int ArraySize, int Start, int Route[], int &RoutePoint ){		
 	int Flag[MAX]; 						// Mang co hieu danh dau cac phan tu da duoc di qua 
@@ -129,15 +118,6 @@ int main(){
 	int Start[MAX];
 	int Route[MAX];
 	int TotalCost , RoutePoint , TotalRoute;
-//	cout<<"Your array size: ";
-//	cin >> ArraySize; 
-//		while ( ArraySize <= 0 ){
-//			cout << " The number of elements must be more than 0. Please re-enter the number of elements of the array: "; 
-//			cin >> ArraySize; 
-//		} 
-//		 
-//	cout<<"----Import your array--- "<<endl;
-//	InArray(Array, ArraySize); 
 	cout<< "Your array size: " << ArraySize << endl;
 	cout<< "Your Array: " <<endl;
 	OutArray( Array , ArraySize );

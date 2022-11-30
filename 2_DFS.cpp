@@ -46,17 +46,6 @@ int pop(Stack *stack)
     return item;
 }
 
-void readFile(int &n, int a[255][255])
-{
-    f = fopen("graph.txt", "r");
-    fscanf(f, "%d", &n);
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
-        {
-            fscanf(f, "%d", &a[i][j]);
-        }
-}
-
 void dfs(int n, int a[255][255], int start)
 {
     Stack *stack = new Stack;
@@ -85,10 +74,15 @@ void dfs(int n, int a[255][255], int start)
 
 int main()
 {
-    int n, start; // n la so dinh, start la dinh khoi dau
+    int n =6, start; // n la so dinh, start la dinh khoi dau
 
-    int a[255][255] = {};
-    readFile(n, a);
+    int a[255][255] = {
+        {0, 20, 42, 31, 6, 24},
+        {10, 0, 17, 6, 35, 18},
+        {25, 5, 0, 27, 14, 9},
+        {12, 9, 24, 0, 30, 12},
+        {14, 7, 21, 15, 0, 38},
+        {40, 15, 16, 5, 20, 0}};
     do
     {
         cout << "Nhap dinh khoi dau (nhap -1 de ket thuc chuong trinh): ";
